@@ -1,7 +1,7 @@
 import requests
 
-def get_weather_info():
-    responce = requests.get(base_url)
+def get_weather_info(url):
+    responce = requests.get(url)
 
     if responce.status_code == 200:
         weather_data = responce.json()
@@ -13,7 +13,8 @@ def get_weather_info():
 def return_weather_info(city):
     city+= city.capitalize()
     base_url = f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}?unitGroup=metric&key=NDPVCQ2HDSXVDQPMYNMHBVVVL&contentType=json'
-    weather_info = get_weather_info()
+    print(base_url)
+    weather_info = get_weather_info(base_url)
 
     if weather_info:
         return f'temperatura: {weather_info["days"][0]["temp"]}'

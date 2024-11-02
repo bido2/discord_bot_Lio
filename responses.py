@@ -15,8 +15,9 @@ def get_response(user_input: str) -> str:
         return 'See you!'
     elif 'roll dice' in lowered:
         return f'You rolled: {randint(1, 6)}'
-    elif 'weather' in lowered:
-        weather_info = return_weather_info(lowered[7:])
+    elif 'temp' in lowered:
+        lowered.split()
+        weather_info = return_weather_info(lowered[lowered.index('temp') + 1])
         return weather_info
     else:
         return choice(['I do not understand...',
