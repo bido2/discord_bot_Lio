@@ -51,7 +51,7 @@ async def on_message(message: Message) -> None:
 
 
 # STEP 5: MAIN ENTRY POINT
-def main() -> None:
+def main():
     client.run(token=TOKEN)
 
 
