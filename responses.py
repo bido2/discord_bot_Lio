@@ -1,5 +1,7 @@
 from random import choice, randint
 from hangman_game_module import hangman_game
+import hangman_game_module
+import importlib
 
 in_game = False
 
@@ -7,14 +9,24 @@ def get_response(user_input: str) -> str:
     lowered: str = user_input.lower()
     global in_game
     if in_game:
+        if user_input == 'stop':
+            in_game = False
+            importlib.reload(hangman_game_module)
+            return 'Thanks for game!'
         result = hangman_game(user_input)
-        return f'{result}\n\nZgaduj:'
+        if result[:4] == 'stop':
+            result = result[5:]
+            importlib.reload(hangman_game_module)
+            in_game = False
+            return (f'{result}\n    '
+                    f'Thanks for game!')
+        return (f'{result}\n\n'
+                f'Try to guess:')
     else:
-        if lowered == '':
-            return None
-        elif 'hangamn' in lowered:
+        if 'hangman' in lowered or 'hm' in lowered:
             in_game = True
-            return 'Okay, lets play:)\n\nZgaduj:'
+            return (f'Okayy, lets play:\n\n'
+                    f'try to guess: ')
         elif 'hello' in lowered:
             return 'Hello there!'
         elif 'how are you' in lowered:
