@@ -45,7 +45,6 @@ words_list = ["kot", "pies", "drzewo", "komputer", "klawiatura", "telefon", "okn
               "powieść", "obraz", "zdjęcie", "matematyka", "fizyka", "chemia", "biologia", "geografia", "historia"]
 
 password = [char for char in words_list[random.randint(0,99)]]
-password = 'kot'
 copy_password = list(password)
 for index in range(len(copy_password)):
     copy_password[index] = '#'

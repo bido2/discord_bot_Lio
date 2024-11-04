@@ -8,6 +8,7 @@ in_game = False
 def get_response(user_input: str) -> str:
     lowered: str = user_input.lower()
     global in_game
+
     if in_game:
         if user_input == 'stop':
             in_game = False
