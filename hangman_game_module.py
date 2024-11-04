@@ -71,7 +71,7 @@ def hangman_game(guess: str):
         for index in index_of_guess_list:
             copy_password[index] = guess
         if copy_password == list(password):
-            return f'stop Confratulatios! you won, password was: {password}'
+            return f'stop Confratulatios! you won, password was: {str(password)}'
         if lives_lost >0:
             draw = draw_list[lives_lost-1]
         else:
@@ -84,7 +84,7 @@ def hangman_game(guess: str):
         lives_lost+=1
         if lives_lost == 13:
             return (f'stop {draw_list[lives_lost-1]}\n'
-                    f'You lost:(')
+                    f'You lost:( password was {password}')
         user_guesses += guess
         draw = (draw_list[lives_lost-1])
         return (f'Oops, {guess} isn\'t in the password\n'
