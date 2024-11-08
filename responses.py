@@ -2,6 +2,7 @@ from random import choice, randint
 from hangman_game_module import hangman_game
 import hangman_game_module
 import importlib
+from weather_api import return_weather_info
 
 in_game = False
 
@@ -36,7 +37,9 @@ def get_response(user_input: str) -> str:
             return 'See you!'
         elif 'roll dice' in lowered:
             return f'You rolled: {randint(1, 6)}'
-        else:
-            return choice(['I do not understand...',
-                           'What are you talking about?',
-                           'Do you mind rephrasing that?'])
+        elif 'temp' in lowered:
+            lowered.split()
+            weather_info = return_weather_info(lowered[lowered.index('temp') + 1])
+        return weather_info
+    else:
+        pass
