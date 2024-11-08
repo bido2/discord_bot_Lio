@@ -30,11 +30,9 @@ def get_response(user_input: str) -> str:
             return (f'Okayy, lets play:\n\n'
                     f'try to guess: ')
         elif 'hello' in lowered:
-            return 'Hello there!'
-        elif 'how are you' in lowered:
-            return 'Good, thanks!'
+            return 'Hello!'
         elif 'bye' in lowered:
-            return 'See you!'
+            return 'Bye!'
         elif 'roll dice' in lowered:
             return f'You rolled: {randint(1, 6)}'
         elif 'temp' in lowered:
