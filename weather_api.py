@@ -11,10 +11,11 @@ def get_weather_info(url):
 
 
 def return_weather_info(city):
-    city+= city.capitalize()
+    print(city)
+    city = city.capitalize()
     base_url = f'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}?unitGroup=metric&key=NDPVCQ2HDSXVDQPMYNMHBVVVL&contentType=json'
     print(base_url)
     weather_info = get_weather_info(base_url)
 
     if weather_info:
-        return f'temperatura: {weather_info["days"][0]["temp"]}'
+        return f'temperatue in {city}: {weather_info["days"][0]["temp"]}'

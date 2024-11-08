@@ -77,7 +77,7 @@ def hangman_game(guess: str):
         else:
             draw = ''
         return (f'Nice! {guess} is in the password\n'
-                f'{password_dispaly(copy_password)}\n'
+                f'"{password_dispaly(copy_password)}"\n'
                 f'Your guesses: {user_guesses}\n'
                 f'{draw}')
     else:
@@ -88,7 +88,7 @@ def hangman_game(guess: str):
         user_guesses += guess
         draw = (draw_list[lives_lost-1])
         return (f'Oops, {guess} isn\'t in the password\n'
-                f'{password_dispaly(copy_password)}\n'
+                f'"{password_dispaly(copy_password)}"\n'
                 f'Your guesses: {user_guesses}\n'
                 f'{draw}')
 

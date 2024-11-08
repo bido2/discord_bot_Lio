@@ -39,7 +39,7 @@ def get_response(user_input: str) -> str:
             return f'You rolled: {randint(1, 6)}'
         elif 'temp' in lowered:
             lowered.split()
-            weather_info = return_weather_info(lowered[lowered.index('temp') + 1])
-        return weather_info
-    else:
-        pass
+            weather_info = return_weather_info(lowered[5:])
+            return weather_info
+        else:
+            pass
